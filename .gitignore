@@ -15,3 +15,8 @@
 *.zip
 *.tar.gz
 *.rar
+
+# python compilation file
+__pycache__/
+*.py[cod]
+*$py.class
