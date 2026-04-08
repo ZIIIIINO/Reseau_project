@@ -1,4 +1,8 @@
-class link:
+from Packet import Packet
+from base.src.simulator import Simulator
+
+
+class Link:
     queue = None  # Ou une strut comme liste chainée
 
     host = None
