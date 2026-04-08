@@ -1,8 +1,8 @@
-from enum import Enum
+from enum import enum, auto
 
-class ReliabilityMode(Enum):
-    NO_RELIABILITY
-    ACKNOWLEDGES
-    ACKNOWLEDGES_WITH_RETRANSMISSION
-    PIPELINING_FIXED_WINDOW
-    PIPELINING_DYNAMIC_WINDOW
+class ReliabilityMode(enum):
+    NO_RELIABILITY = auto()
+    ACKNOWLEDGES = auto()
+    ACKNOWLEDGES_WITH_RETRANSMISSION = auto()
+    PIPELINING_FIXED_WINDOW = auto()
+    PIPELINING_DYNAMIC_WINDOW = auto()
