@@ -1,6 +1,6 @@
-from enum import enum, auto
+from enum import Enum, auto
 
-class ReliabilityMode(enum):
+class ReliabilityMode(Enum):
     NO_RELIABILITY = auto()
     ACKNOWLEDGES = auto()
     ACKNOWLEDGES_WITH_RETRANSMISSION = auto()
