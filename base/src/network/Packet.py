@@ -16,5 +16,10 @@ class Packet:
         self.seq_num = seq_num
         self.payload = payload
 
-    def setSize(self, size: int):
-        self.size = size
+        match PacketType:
+            case PacketType.DATA:
+                self.is_ack=False
+            case PacketType.ACK:
+                self.is_ack=True
+
+        
