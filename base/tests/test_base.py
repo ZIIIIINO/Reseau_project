@@ -1,11 +1,7 @@
 import pytest
 from src.simulator.Simulator import Simulator
-<<<<<<< HEAD
-from src.network.Host import Host, ReliabilityMode
-=======
 from src.network.Host import Host
 from src.network.ReliabilityMode import ReliabilityMode
->>>>>>> 5f5c92ff6f239cf19efe93c3953e717ae92f72e4
 from src.network.Router import Router
 from src.network.Link import Link
 from src.network.NIC import NIC

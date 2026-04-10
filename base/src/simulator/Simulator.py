@@ -2,10 +2,6 @@ import queue
 import logging
 
 from src.simulator.SimulatorEvent import SimulatorEvent
-<<<<<<< HEAD
-=======
-
->>>>>>> 5f5c92ff6f239cf19efe93c3953e717ae92f72e4
 
 # Simplest Discrete Event Simulator
 class Simulator:

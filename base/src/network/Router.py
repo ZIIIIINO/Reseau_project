@@ -1,6 +1,7 @@
-from src.simulator import SimulatedEntity
-from src.simulator import Simulator
-import src.network.Packet
+from src.simulator.SimulatedEntity import SimulatedEntity
+from src.simulator.Simulator import Simulator
+from src.network.NIC import NIC
+from src.network.Packet import Packet
 
 
 class Routeur(SimulatedEntity):
