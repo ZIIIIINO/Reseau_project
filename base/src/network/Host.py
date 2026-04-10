@@ -1,9 +1,7 @@
-from src.simulator.Simulator import Simulator
-from src.network.Packet import Packet
-from src.network.NIC import NIC
-from src.network.ReliabilityMode import ReliabilityMode
-
-
+from simulator.Simulator import Simulator
+from network.Packet import Packet
+from network.NIC import NIC
+from network.ReliabilityMode import ReliabilityMode
 
 
 class Host:

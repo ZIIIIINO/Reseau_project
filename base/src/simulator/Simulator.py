@@ -1,7 +1,8 @@
 import queue
 import logging
 
-from src.simulator.SimulatorEvent import SimulatorEvent
+from simulator.SimulatorEvent import SimulatorEvent
+
 
 # Simplest Discrete Event Simulator
 class Simulator:

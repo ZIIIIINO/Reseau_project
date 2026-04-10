@@ -1,12 +1,12 @@
 import pytest
-from src.simulator.Simulator import Simulator
-from src.network.Host import Host
-from src.network.ReliabilityMode import ReliabilityMode
-from src.network.Router import Router
-from src.network.Link import Link
-from src.network.NIC import NIC
-from src.network.Packet import Packet
-from tests.utils_test import setup_topology
+from simulator.Simulator import Simulator
+from network.Host import Host
+from network.ReliabilityMode import ReliabilityMode
+from network.Router import Router
+from network.Link import Link
+from network.NIC import NIC
+from network.Packet import Packet
+from utils_test import setup_topology
 
 
 def test_api_presence_and_types():

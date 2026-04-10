@@ -1,7 +1,6 @@
-from re import error
-from src.network.Packet import Packet
-from src.simulator.Simulator import Simulator
-from src.network.NIC import NIC
+from network.Packet import Packet
+from simulator.Simulator import Simulator
+from network.NIC import NIC
 
 
 class Link:

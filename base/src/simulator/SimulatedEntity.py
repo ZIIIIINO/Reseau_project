@@ -17,4 +17,3 @@ class SimulatedEntity:
 
     def info(self, msg):
         self._logger.info(f"@{self._now():.6f}, {self} {msg}")
-

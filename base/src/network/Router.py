@@ -1,7 +1,7 @@
-from src.simulator.SimulatedEntity import SimulatedEntity
-from src.simulator.Simulator import Simulator
-from src.network.NIC import NIC
-from src.network.Packet import Packet
+from simulator.SimulatedEntity import SimulatedEntity
+from simulator.Simulator import Simulator
+from network.NIC import NIC
+from network.Packet import Packet
 
 
 class Router(SimulatedEntity):
@@ -19,4 +19,3 @@ class Router(SimulatedEntity):
     def receive(self, nic: NIC, pkt: Packet):
         pass
         # TODO
-
