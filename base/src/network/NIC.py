@@ -29,12 +29,12 @@ class NIC(SimulatedEntity):
             tPropagation = self.link.distance / self.link.speed
 
             self.sim.add_event(Event(pkt, self.sendPacket), tTransmission)
-            self.sim.add_event(Event(pkt, self.checkup), tPropagation)
+            self.sim.add_event(Event(None, self.checkup), tPropagation)
 
-    def sendPacket(pkt: Packet):
+    def sendPacket(self, pkt: Packet):
         self.link.other().receive(pkt)
 
-    def checkup(x=None):
+    def checkup(self, x=None):
         self.occupied = True
 
     def receive(self, pkt: Packet):
