@@ -1,5 +1,6 @@
-from Packet import Packet
-from base.src.simulator import Simulator
+from src.network.Packet import Packet
+from src.simulator.Simulator import Simulator
+from src.network.NIC import NIC
 
 
 class Link:
@@ -13,7 +14,7 @@ class Link:
     def send(self, pkt: Packet):
         return
 
-    def attach(self, link: Link):
+    def attach(self, nic: NIC):
         return
 
     def set_host(self, host):

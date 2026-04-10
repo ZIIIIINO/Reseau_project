@@ -4,7 +4,7 @@ from src.network.NIC import NIC
 from src.network.Packet import Packet
 
 
-class Routeur(SimulatedEntity):
+class Router(SimulatedEntity):
     def __init__(self, sim: Simulator, name: str):
         super(sim)
         self.name = name

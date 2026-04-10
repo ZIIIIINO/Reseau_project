@@ -1,7 +1,7 @@
 from queue import Queue
 
-from simulator.Simulator import Simulator
-from simulator.SimulatedEntity import SimulatedEntity
+from src.simulator.Simulator import Simulator
+from src.simulator.SimulatedEntity import SimulatedEntity
 
 
 class NIC(SimulatedEntity):

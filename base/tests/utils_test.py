@@ -1,7 +1,10 @@
-from Host import Host, ReliabilityMode
-from Router import Router
-from Link import Link
-from NIC import NIC
+from src.simulator.Simulator import Simulator
+from src.network.Host import Host
+from src.network.ReliabilityMode import ReliabilityMode
+from src.network.Router import Router
+from src.network.Link import Link
+from src.network.NIC import NIC
+from src.network.Packet import Packet
 
 def setup_topology(sim, 
                    mode=ReliabilityMode.NO_RELIABILITY,

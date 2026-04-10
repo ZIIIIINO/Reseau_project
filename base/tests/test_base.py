@@ -6,7 +6,7 @@ from src.network.Router import Router
 from src.network.Link import Link
 from src.network.NIC import NIC
 from src.network.Packet import Packet
-from utils_test import setup_topology
+from tests.utils_test import setup_topology
 
 
 def test_api_presence_and_types():
