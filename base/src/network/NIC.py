@@ -2,6 +2,8 @@ from queue import Queue
 
 from src.simulator.Simulator import Simulator
 from src.simulator.SimulatedEntity import SimulatedEntity
+from src.network.Packet import Packet
+from src.network.Link import Link
 
 
 class NIC(SimulatedEntity):
@@ -19,6 +21,15 @@ class NIC(SimulatedEntity):
         self.name = name
 
         self.queue = Queue(queue_size)
+
+    def Send(self, pkt: Packet):
+        return
+
+    def receive(self, pkt: Packet):
+        return
+    
+    def attach(self, link: Link):
+        return
 
     def set_host(self, host):
         self.host = host
