@@ -1,27 +1,30 @@
+from re import error
 from src.network.Packet import Packet
 from src.simulator.Simulator import Simulator
 from src.network.NIC import NIC
 
 
 class Link:
-    queue = None  # Ou une strut comme liste chainée
+    speed = None
+    distance = None
+    name = None
+    nics = []
 
-    host = None
-
-    def __init__(self, sim: Simulator, name: str, rate: float, queue_size: int = 0):
-        return
-
-    def send(self, pkt: Packet):
-        return
+    def __init__(self, name: str, distance: float, speed: float):
+        self.name = name
+        self.distance = distance
+        self.speed = speed
 
     def attach(self, nic: NIC):
-        return
+        self.nics.append(nic) if len(self.nics) < 2 else error("Only 2 nic for a link")
 
-    def set_host(self, host):
-        self.host = host
+    def other(self, nic: NIC):
 
-    def get_host(self, host):
-        return self.host
+        if nic in self.nics:
+            for el in self.nics:
+                if el != nic:
+                    return el
+        error("interface don't exist")
 
-    def queue_depth(self):
-        return
+    def should_lose(self, pkt: Packet) -> bool:
+        return False
