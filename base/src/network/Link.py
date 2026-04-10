@@ -15,7 +15,10 @@ class Link:
         self.speed = speed
 
     def attach(self, nic: NIC):
-        self.nics.append(nic) if len(self.nics) < 2 else error("Only 2 nic for a link")
+        if len(self.nics) < 2:
+            self.nics.append(nic)
+        else:
+            raise Exception("Only 2 nic for a routeur")
 
     def other(self, nic: NIC):
 
@@ -23,7 +26,7 @@ class Link:
             for el in self.nics:
                 if el != nic:
                     return el
-        error("interface don't exist")
+        raise Exception("interface don't exist")
 
     def should_lose(self, pkt: Packet) -> bool:
         return False

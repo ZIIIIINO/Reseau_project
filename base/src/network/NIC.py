@@ -1,5 +1,3 @@
-from queue import Queue
-
 from simulator.Simulator import Simulator
 from simulator.SimulatedEntity import SimulatedEntity
 from network.Packet import Packet
@@ -11,6 +9,7 @@ class NIC(SimulatedEntity):
     sim = None
     name = None
     host = None
+    link = None
 
     def __init__(self, sim: Simulator, name: str, rate: float, queue_size: int = 0):
         super().__init__(sim)
@@ -25,10 +24,10 @@ class NIC(SimulatedEntity):
         return
 
     def receive(self, pkt: Packet):
-        return
+        host.receive(self, pkt)
 
     def attach(self, link: Link):
-        return
+        self.link=link
 
     def set_host(self, host):
         self.host = host
