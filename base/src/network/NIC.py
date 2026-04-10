@@ -21,10 +21,10 @@ class NIC(SimulatedEntity):
         self.sim = sim
         self.name = name
 
-        self.queue = Queue(queue_size)
+        self.queue = deque(queue_size)
 
     def Send(self, pkt: Packet):
-        if occupied == False:
+        if self.occupied == False:
             tTransmission = pkt.size * self.rate
             tPropagation = self.link.distance / self.link.speed
 
@@ -38,7 +38,7 @@ class NIC(SimulatedEntity):
         self.occupied = True
 
     def receive(self, pkt: Packet):
-        host.receive(self, pkt)
+        self.host.receive(self, pkt)
 
     def attach(self, link: Link):
         self.link = link
