@@ -1,8 +1,9 @@
 import pytest
 from src.simulator.Simulator import Simulator
-from Host import Host, ReliabilityMode
-from Router import Router
-from Link import Link
+from src.network.Host import Host
+from src.network.ReliabilityMode import ReliabilityMode
+from src.network.Router import Router
+from src.network.Link import Link
 from src.network.NIC import NIC
 from src.network.Packet import Packet
 from utils_test import setup_topology
