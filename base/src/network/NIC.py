@@ -45,7 +45,7 @@ class NIC(SimulatedEntity):
     def receive(self, pkt: Packet):
         self.host.receive(self, pkt)
 
-    def attach(self, link: Link):
+    def attach(self, link):
         self.link = link
 
     def set_host(self, host):
