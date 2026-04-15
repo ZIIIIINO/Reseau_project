@@ -6,7 +6,7 @@ from network.ReliabilityMode import ReliabilityMode
 
 
 class Host:
-    TIMEOUT_DELAY = None
+    TIMEOUT_DELAY = 100
 
     def __init__(self, sim: Simulator, name: str, mode: ReliabilityMode):
 
