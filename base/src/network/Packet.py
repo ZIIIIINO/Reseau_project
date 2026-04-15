@@ -7,10 +7,6 @@ class PacketType(Enum):
 
 
 class Packet:
-    seq_num = None
-    is_ack = None
-    payload = None
-    size = None
 
     def __init__(
         self, seq_num: int, type: PacketType = PacketType.DATA, payload: str = ""

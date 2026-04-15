@@ -14,6 +14,7 @@ class Simulator:
 
     def add_event(self, event, delta_t):
         self.__logger.debug(f"Simulator queueing event {event} in {delta_t} s")
+        print(delta_t)
         assert delta_t >= 0
         self.q.put(SimulatorEvent(self.__now + delta_t, Simulator._en, event))
         Simulator._en += 1

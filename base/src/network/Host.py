@@ -8,11 +8,6 @@ from network.ReliabilityMode import ReliabilityMode
 class Host:
     TIMEOUT_DELAY = None
 
-    sim = None
-    name = None
-    mode = None
-    buffer = None
-
     def __init__(self, sim: Simulator, name: str, mode: ReliabilityMode):
 
         self.sim = sim

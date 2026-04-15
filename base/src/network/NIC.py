@@ -5,15 +5,6 @@ from collections import deque
 
 
 class NIC(SimulatedEntity):
-    rate = None
-    queue = None
-    queue_size = None
-    sim = None
-    name = None
-    host = None
-    link = None
-    occupied = False
-
     def __init__(self, sim: Simulator, name: str, rate: float, queue_size: int = 0):
         self.link = None
         self.host= None
@@ -33,13 +24,14 @@ class NIC(SimulatedEntity):
         self.sendTry()
     def sendTry(self):
         if len(self.queue) != 0:
+            pkt = self.queue.popleft()
 
             if self.occupied == False:
                 tTransmission = pkt.size * self.rate
                 tPropagation = self.link.distance / self.link.speed
 
-                self.sim.add_event(Event(pkt, self.sendPacket), tTransmission)
-                self.sim.add_event(Event(None, self.checkup), tPropagation)
+                self.sim.add_event(Event(pkt, self.sendPacket)  , 100)
+                self.sim.add_event(Event(None, self.checkup), 100)
                 self.occupied = True 
 
 
