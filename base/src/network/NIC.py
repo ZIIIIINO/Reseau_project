@@ -12,25 +12,27 @@ class NIC(SimulatedEntity):
         self.occupied = False
         super().__init__(sim)
         self.rate = rate
-        self.queue_size = queue_size
+        self.queue_size = 10
         self.sim = sim
         self.name = name
 
-        self.queue = deque(maxlen=queue_size)
+        self.queue = []
 
 
     def send(self, pkt: Packet):
-        if len(self.queue) != self.queue_size:
+
+        if len(self.queue) <= self.queue_size:
              self.queue.append(pkt)
+
         self.sendTry()
     def sendTry(self):
+
         if len(self.queue) != 0:
-            pkt = self.queue.popleft()
+            pkt = self.queue.pop(0)
 
             if (self.occupied == False) and (self.link !=None):
                 tTransmission = pkt.size * self.rate
                 tPropagation = self.link.distance / self.link.speed
-
                 self.sim.add_event(Event(pkt, self.sendPacket)  , tTransmission+tPropagation)
                 self.sim.add_event(Event(None, self.checkup), tPropagation)
                 self.occupied = True 
