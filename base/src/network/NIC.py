@@ -23,6 +23,8 @@ class NIC(SimulatedEntity):
 
         self.queue = deque(queue_size)
 
+        self.queue
+
     def Send(self, pkt: Packet):
         if self.occupied == False:
             tTransmission = pkt.size * self.rate

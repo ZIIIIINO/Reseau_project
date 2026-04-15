@@ -10,27 +10,30 @@ class Host:
     sim = None
     name = None
     mode = None
+    buffer = None
 
     def __init__(self, sim: Simulator, name: str, mode: ReliabilityMode):
 
         self.sim = sim
         self.name = name
         self.mode = mode
+        self.buffer = []
 
     def add_nic(self, nic: NIC):
         self.nic = nic
 
     def send_data(self, data: str):
-        pass
+        for i in range(0 , len(data)):
+            self.nic.send(Packet(None, PacketType.DATA, data[i]))
 
     def receive(self, nic: NIC, pkt: Packet):
-        pass
+        self.buffer.append(pkt)
 
     def get_received_data(self) -> str:
-        pass
+        print(self.buffer)
 
     def get_current_window_size(self) -> int:
-        pass
+        return 0
 
     def get_total_retransmissions(self) -> int:
-        pass
+        return 0

@@ -23,4 +23,4 @@ class Router(SimulatedEntity):
         if not(nic in self.nics):
             raise Exception("Nic is not associed with the router")
         receiver = self.nics[1] if nic == self.nics[0] else self.nics[0]
-        #TODO faire en sorte que ça mette dans la fil de l'interface
+        receiver.send(pkt)
