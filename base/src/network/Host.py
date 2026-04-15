@@ -21,8 +21,7 @@ class Host:
         self.nic = nic
 
     def send_data(self, data: str):
-        pass
-
+        
     def receive(self, nic: NIC, pkt: Packet):
         pass
 
