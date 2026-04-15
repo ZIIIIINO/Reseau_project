@@ -26,18 +26,27 @@ class NIC(SimulatedEntity):
         self.queue
 
     def Send(self, pkt: Packet):
-        if self.occupied == False:
-            tTransmission = pkt.size * self.rate
-            tPropagation = self.link.distance / self.link.speed
+        if len(self.queue) != self.queue_size:
+             self.queue.append(pkt)
+        self.sendTry()
+    def sendTry(self):
+        if len(queue) != 0:
 
-            self.sim.add_event(Event(pkt, self.sendPacket), tTransmission)
-            self.sim.add_event(Event(None, self.checkup), tPropagation)
+            if self.occupied == False:
+                tTransmission = pkt.size * self.rate
+                tPropagation = self.link.distance / self.link.speed
+
+                self.sim.add_event(Event(pkt, self.sendPacket), tTransmission)
+                self.sim.add_event(Event(None, self.checkup), tPropagation)
+                self.occupied = True 
+
 
     def sendPacket(self, pkt: Packet):
         self.link.other().receive(pkt)
 
     def checkup(self, x=None):
-        self.occupied = True
+        self.occupied = False
+        self.sendTry()
 
     def receive(self, pkt: Packet):
         self.host.receive(self, pkt)
@@ -52,4 +61,4 @@ class NIC(SimulatedEntity):
         return self.host
 
     def queue_depth(self):
-        return
+        return len(self.queue)
