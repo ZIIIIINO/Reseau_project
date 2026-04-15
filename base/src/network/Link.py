@@ -14,6 +14,7 @@ class Link:
     def attach(self, nic: NIC):
         if len(self._nics) <= 2:
             self._nics.append(nic)
+            nic.attach(self)
         else:
             raise Exception("Only 2 nic for a routeur")
 

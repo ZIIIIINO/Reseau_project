@@ -2,6 +2,7 @@ from simulator.Simulator import Simulator
 from simulator.SimulatedEntity import SimulatedEntity
 from network.Packet import Packet
 from collections import deque
+from simulator.Event import Event
 
 
 class NIC(SimulatedEntity):
@@ -30,13 +31,13 @@ class NIC(SimulatedEntity):
                 tTransmission = pkt.size * self.rate
                 tPropagation = self.link.distance / self.link.speed
 
-                self.sim.add_event(Event(pkt, self.sendPacket)  , tTransmission)
+                self.sim.add_event(Event(pkt, self.sendPacket)  , tTransmission+tPropagation)
                 self.sim.add_event(Event(None, self.checkup), tPropagation)
                 self.occupied = True 
 
 
     def sendPacket(self, pkt: Packet):
-        self.link.other().receive(pkt)
+        self.link.other(self).receive(pkt)
 
     def checkup(self, x=None):
         self.occupied = False
