@@ -21,7 +21,7 @@ class Router(SimulatedEntity):
             raise Exception("Only 2 nic for a routeur")
 
     def receive(self, nic: NIC, pkt: Packet):
-        if not(nic in self.nics):
+        if not(nic in self._nics):
             raise Exception("Nic is not associed with the router")
         receiver = self._nics[1] if nic == self._nics[0] else self._nics[0]
         receiver.send(pkt)
